@@ -21,7 +21,7 @@ class Quad {
             glColor3f(r, g, b); 
             glBegin(GL_QUADS);          
                 for (auto i : vertices) 
-                    glVertex2f(i[0], i[1]);            
+                    glVertex2i(i[0], i[1]);            
             glEnd();
         }
         void set_rgb(float r, float g, float b) {

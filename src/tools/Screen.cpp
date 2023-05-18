@@ -4,6 +4,8 @@
 
 using namespace std;
 
+
+// global variables
 float phyHeight = 1000;
 float phyWidth = 1000;
 float logWidth = 1000;
@@ -14,6 +16,7 @@ int alphaX = 0;
 int alphaY = 0;
 float mouseX = centerX;
 float mouseY = centerY;
+
 
 
 

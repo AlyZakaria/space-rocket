@@ -8,9 +8,9 @@
 #include "src/tools/Screen.cpp"
 #include "src/Game.cpp"
 #include "src/tools/Mouse.cpp"
+#include "src/tools/Keyboard.cpp"
 
 using namespace std;
-
 
 
 Game newGame = Game();
@@ -25,5 +25,6 @@ int main(int argc, char** argv) {
     newGame.init(0.0, 0.0, 0.0);
     glutDisplayFunc(display);
     glutPassiveMotionFunc(Mouse::passiveMouse);
+    glutKeyboardFunc(Keyboard::keyPress); 
     glutMainLoop();
 }   

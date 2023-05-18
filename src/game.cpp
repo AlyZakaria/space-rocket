@@ -11,7 +11,6 @@ using namespace std;
 
 
 class Game {
-    private:
 
     public:
         Game() {
@@ -19,7 +18,6 @@ class Game {
             glutInitWindowSize(phyWidth, phyHeight);
             glutInitWindowPosition(300,0);
             glutCreateWindow("Space Rocket");
-
         }
         void init(float r, float g, float b){
             glClearColor(r,g,b,0);// background color
@@ -30,9 +28,10 @@ class Game {
 
         void display() {
             glClear(GL_COLOR_BUFFER_BIT); // clear the buffers
-
+    
             SpaceRocket rocket = SpaceRocket(mouseX, mouseY);
             rocket.draw();
+            
             glutSwapBuffers(); // swap the buffers
             glFlush(); // flush the OpenGL pipeline (usually not necessary)
         }
