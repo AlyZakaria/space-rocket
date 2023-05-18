@@ -30,12 +30,12 @@ class Circle {
         void draw() {
             glColor3f(r, g, b); 
             glBegin(GL_POLYGON);
-            for (int i = 0; i < num_segments; i++) {
-                float theta = 2.0f * 3.1415926f * float(i) / float(num_segments);//get the current angle
-                float x = raduis * cosf(theta);//calculate the x component
-                float y = raduis * sinf(theta);//calculate the y component
-                glVertex2f(x + cx, y + cy);//output vertex
-            }
+                for (int i = 0; i < num_segments; i++) {
+                    float theta = 2.0f * 3.1415926f * float(i) / float(num_segments);//get the current angle
+                    float x = raduis * cosf(theta);//calculate the x component
+                    float y = raduis * sinf(theta);//calculate the y component
+                    glVertex2f(x + cx, y + cy);//output vertex
+                }
             glEnd();
         }
 
