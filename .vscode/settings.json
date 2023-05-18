@@ -1,0 +1,22 @@
+{
+    "run.timelimit": 300000,
+    
+    "run.compiler": "mingw32-g++.exe -std=c++11 -Wall -g -IC:MinGWinclude ",
+    "run.compilerArgs": "-o Program.exe -L C:MinGWlib -lglut32 -lopengl32 -lglu32 -lwinmm -lgdi32",
+    "C_Cpp.formatting": "vcFormat",
+    "breadcrumbs.enabled": false,
+    "editor.formatOnType": true,
+    "editor.formatOnSave": true,
+    "files.exclude": {
+      "mingw*": true,
+      "Program.exe": true
+    },
+    "files.associations": {
+      "iostream": "cpp",
+      "fstream": "cpp",
+      "ostream": "cpp"
+    },
+    "code-runner.executorMap":{
+      "cpp": "cd $dir && g++ -std=c++17 $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+  },
+  } 
