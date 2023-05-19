@@ -40,9 +40,17 @@ public:
         glMatrixMode(GL_PROJECTION); // 2d
         gluOrtho2D(0.0, 1000.0, 0.0, 1000.0); // range of x and y axis
     }
+    static void Timeout(int value) {
+        glutTimerFunc(1000, Timeout, value);
+        timer--;
+        glutPostRedisplay();
+    }
     void main(int argc, char** argv) {
-        glutPassiveMotionFunc(SpaceRocket::moving);
+        if (timer <= 0) return;
         Asteroid::Timer(10);
+        Game::Timeout(0);
+        glutPassiveMotionFunc(SpaceRocket::moving);
+
     }
 
     void display() {
@@ -50,14 +58,28 @@ public:
 
         rocket = SpaceRocket(mouseX, mouseY);
         rocket.draw();
-        if (maxi <= Asteroid::Max_Asteroids && !asteroid.get_raduis()) {
+        if (maxi <= Asteroid::Max_Asteroids && !asteroid.get_raduis() && timer > 0) {
             asteroid = Asteroid();
             maxi++;
         }
         else if (maxi > Asteroid::Max_Asteroids) {
             Text text;
             text.setColor(1.0, 1.0, 1.0);
-            text.printText("Game Over", 470, 500);
+            text.printText("Game Over", 400, 700);
+            std::stringstream ss;
+            ss << "Your Score is   " << asteroidDestroyed;
+            text.printText(ss.str().c_str(), 400, 600);
+            text.printText("Press F1 to play Again", 400, 500);
+            gameOver = true;
+        }
+        else if (timer < 0) {
+            Text text;
+            text.setColor(1.0, 1.0, 1.0);
+            text.printText("Time Out", 400, 700);
+            std::stringstream ss;
+            ss << "Your Score is   " << asteroidDestroyed;
+            text.printText(ss.str().c_str(), 400, 600);
+            text.printText("Press F1 to play Again", 400, 500);
         }
         else {
             asteroid.moving();
@@ -70,6 +92,12 @@ public:
             std::stringstream ss;
             ss << "Score: " << asteroidDestroyed;
             text.printText(ss.str().c_str(), 10, 970);
+
+            // Timer
+            Text timeText;
+            std::stringstream newS;
+            newS << "Time: " << timer;
+            timeText.printText(newS.str().c_str(), 915, 970);
         }
 
 

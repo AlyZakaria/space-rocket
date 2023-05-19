@@ -18,7 +18,8 @@ float mouseX = 0;
 float mouseY = 0;
 int asteroidDestroyed = 0;
 int maxi = 0;
-
+int timer = 20;
+bool gameOver = false;
 
 
 

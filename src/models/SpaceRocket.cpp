@@ -63,7 +63,6 @@ public:
             asteroidDestroyed++;
             asteroid.set_raduis(0.0);
         }
-
     }
     void static moving(int x, int y) {
         Mouse::passiveMouse(x, y);

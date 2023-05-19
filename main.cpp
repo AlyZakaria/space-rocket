@@ -26,6 +26,7 @@ int main(int argc, char** argv) {
     newGame.init(0.0, 0.0, 0.0);
     glutDisplayFunc(display);
     glutKeyboardFunc(Keyboard::keyPress);
+    glutSpecialFunc(Keyboard::specialKeyPress);
     newGame.main(argc, argv);
 
     glutMainLoop();

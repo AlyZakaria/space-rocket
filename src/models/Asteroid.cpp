@@ -37,14 +37,16 @@ public:
         cy -= sqDelta;
         float maxY = floor(mouseY); // asteroid Maximum Travelling
         if ((floor(cy) <= maxY && mouseX - 20 < cx && mouseX + 20 > cx) || cy < 0) sqUp = !sqUp;
-        if (sqUp) sqDelta += 0.03;
+        if (sqUp) sqDelta += 0.1;
         else {
             this->set_raduis(0.0);
         }
     }
     static void Timer(int value) {
         glutTimerFunc(10, Timer, value);
-        glutPostRedisplay();
+        if (timer > 0)
+            glutPostRedisplay();
+        else return;
     }
     float getX() { return this->cx; }
     float getY() { return this->cy; }
