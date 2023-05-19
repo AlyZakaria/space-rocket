@@ -14,9 +14,20 @@
     "files.associations": {
       "iostream": "cpp",
       "fstream": "cpp",
-      "ostream": "cpp"
+      "ostream": "cpp",
+      "array": "cpp",
+      "deque": "cpp",
+      "forward_list": "cpp",
+      "list": "cpp",
+      "string": "cpp",
+      "unordered_map": "cpp",
+      "unordered_set": "cpp",
+      "vector": "cpp",
+      "initializer_list": "cpp",
+      "regex": "cpp"
     },
     "code-runner.executorMap":{
       "cpp": "cd $dir && g++ -std=c++17 $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
   },
+  "C_Cpp.errorSquiggles": "enabled",
   } 

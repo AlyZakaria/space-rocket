@@ -6,9 +6,11 @@
 #include <math.h>
 #include <stdlib.h>
 #include "src/tools/Screen.cpp"
-#include "src/Game.cpp"
 #include "src/tools/Mouse.cpp"
+#include "src/Game.cpp"
 #include "src/tools/Keyboard.cpp"
+
+
 
 using namespace std;
 
@@ -16,7 +18,7 @@ using namespace std;
 Game newGame = Game();
 
 void display() {
-   newGame.display();
+    newGame.display();
 }
 
 
@@ -24,7 +26,8 @@ int main(int argc, char** argv) {
 
     newGame.init(0.0, 0.0, 0.0);
     glutDisplayFunc(display);
-    glutPassiveMotionFunc(Mouse::passiveMouse);
-    glutKeyboardFunc(Keyboard::keyPress); 
+    glutKeyboardFunc(Keyboard::keyPress);
+    newGame.main(argc, argv);
+
     glutMainLoop();
-}   
+}

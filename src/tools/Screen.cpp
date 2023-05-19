@@ -14,8 +14,8 @@ float centerX = logWidth / 2;
 float centerY = logHeight / 2;
 int alphaX = 0;
 int alphaY = 0;
-float mouseX = centerX;
-float mouseY = centerY;
+float mouseX = 0;
+float mouseY = 0;
 
 
 

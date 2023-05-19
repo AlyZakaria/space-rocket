@@ -15,9 +15,9 @@ class Keyboard {
 public:
     Keyboard() {}
     static void keyPress(unsigned char key, int x, int y) {
-        if (key == 32) 
-            LaserBeam::iterator = (LaserBeam::iterator+1) % 3;
-        
+        if (key == 32)
+            LaserBeam::iterator = (LaserBeam::iterator + 1) % 3;
+
         glutPostRedisplay();
     }
 };
