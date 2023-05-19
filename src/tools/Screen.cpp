@@ -16,6 +16,8 @@ int alphaX = 0;
 int alphaY = 0;
 float mouseX = 0;
 float mouseY = 0;
+int asteroidDestroyed = 0;
+int maxi = 0;
 
 
 

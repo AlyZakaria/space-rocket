@@ -24,7 +24,8 @@
       "unordered_set": "cpp",
       "vector": "cpp",
       "initializer_list": "cpp",
-      "regex": "cpp"
+      "regex": "cpp",
+      "bitset": "cpp"
     },
     "code-runner.executorMap":{
       "cpp": "cd $dir && g++ -std=c++17 $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",

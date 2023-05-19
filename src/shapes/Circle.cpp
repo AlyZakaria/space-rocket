@@ -60,6 +60,6 @@ public:
     void set_num_segments(int num_segments) {
         if (num_segments >= 0) this->num_segments = num_segments;
     }
-
+    int get_raduis() { return this->raduis; }
 
 };

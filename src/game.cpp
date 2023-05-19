@@ -6,21 +6,29 @@
 #include <math.h>
 #include <stdlib.h>
 #include <iostream>
+#include <string>
+#include <cstring>
+#include<sstream> 
 #include "shapes/Triangle.cpp"
 #include "shapes/Circle.cpp"
 #include "shapes/Quad.cpp"
+#include "tools/Text.cpp"
 #include "models/Asteroid.cpp"
 #include "models/SpaceRocket.cpp"
+#include <bits/stdc++.h>
+
 using namespace std;
 
-int maxi = 0;
 
 
 class Game {
 
+
+
 public:
     SpaceRocket rocket;
     Asteroid asteroid;
+
     Game() {
         glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE);// color & number of buffers
         glutInitWindowSize(phyWidth, phyHeight);
@@ -42,14 +50,28 @@ public:
 
         rocket = SpaceRocket(mouseX, mouseY);
         rocket.draw();
-        if (maxi == 0) {
+        if (maxi <= Asteroid::Max_Asteroids && !asteroid.get_raduis()) {
             asteroid = Asteroid();
             maxi++;
         }
-        asteroid.moving();
-        // shooting
-        rocket.shooting(asteroid);
-        asteroid.draw();
+        else if (maxi > Asteroid::Max_Asteroids) {
+            Text text;
+            text.setColor(1.0, 1.0, 1.0);
+            text.printText("Game Over", 470, 500);
+        }
+        else {
+            asteroid.moving();
+            asteroid.draw();
+            // shooting
+            rocket.shooting(asteroid);
+            // score
+            Text text;
+            text.setColor(1.0, 1.0, 1.0);
+            std::stringstream ss;
+            ss << "Score: " << asteroidDestroyed;
+            text.printText(ss.str().c_str(), 10, 970);
+        }
+
 
         glutSwapBuffers(); // swap the buffers
         glFlush(); // flush the OpenGL pipeline (usually not necessary)

@@ -58,9 +58,12 @@ public:
     void shooting(Asteroid& asteroid) {
         float x1 = rocketX - (bodyWidth / 2);
         float x2 = rocketX + (bodyWidth / 2);
-
-        if (x1 < asteroid.getX() && x2 > asteroid.getX() && asteroid.getY() > rocketY && asteroid.get_rgb() == laserBeam.get_rgb())
+        // to check if the laser beam hit the asteroid & same color 
+        if (x1 < asteroid.getX() && x2 > asteroid.getX() && asteroid.getY() > rocketY && asteroid.get_rgb() == laserBeam.get_rgb()) {
+            asteroidDestroyed++;
             asteroid.set_raduis(0.0);
+        }
+
     }
     void static moving(int x, int y) {
         Mouse::passiveMouse(x, y);
