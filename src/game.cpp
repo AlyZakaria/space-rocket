@@ -15,10 +15,13 @@
 #include "tools/Text.cpp"
 #include "models/Asteroid.cpp"
 #include "models/SpaceRocket.cpp"
+#include "models/Backgrounds/Background.cpp"
+#include "models/Backgrounds/BackgroundGame.cpp"
 #include <bits/stdc++.h>
 
 using namespace std;
 
+BackgroundGame* BackgroundGame::BackgroundGame_ = NULL;
 
 
 class Game {
@@ -55,6 +58,11 @@ public:
 
     void display() {
         glClear(GL_COLOR_BUFFER_BIT); // clear the buffers
+        // Background   
+
+        BackgroundGame* mainBackground = BackgroundGame::getInstance();
+        mainBackground->set_rgb(0.0, 0.0, 0.0);
+        mainBackground->draw();
 
         rocket = SpaceRocket(mouseX, mouseY);
         rocket.draw();
