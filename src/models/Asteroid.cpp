@@ -37,7 +37,7 @@ public:
         cy -= sqDelta;
         float maxY = floor(mouseY); // asteroid Maximum Travelling
         if ((floor(cy) <= maxY && mouseX - 20 < cx && mouseX + 20 > cx) || cy < 0) sqUp = !sqUp;
-        if (sqUp) sqDelta += 0.1;
+        if (sqUp) sqDelta += 0.5;
         else {
             this->set_raduis(0.0);
         }

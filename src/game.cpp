@@ -21,13 +21,10 @@
 
 using namespace std;
 
+// only one instance of backgroundGame is needed (singleton)
 BackgroundGame* BackgroundGame::BackgroundGame_ = NULL;
 
-
 class Game {
-
-
-
 public:
     SpaceRocket rocket;
     Asteroid asteroid;
@@ -45,12 +42,15 @@ public:
     }
     static void Timeout(int value) {
         glutTimerFunc(1000, Timeout, value);
+        // decrement one second to show on screen
         timer--;
         glutPostRedisplay();
     }
     void main(int argc, char** argv) {
         if (timer <= 0) return;
+        // Time for movement of asteroids
         Asteroid::Timer(10);
+        // Time for main game
         Game::Timeout(0);
         glutPassiveMotionFunc(SpaceRocket::moving);
 
@@ -58,19 +58,23 @@ public:
 
     void display() {
         glClear(GL_COLOR_BUFFER_BIT); // clear the buffers
-        // Background   
 
+        // Background   
         BackgroundGame* mainBackground = BackgroundGame::getInstance();
         mainBackground->set_rgb(0.0, 0.0, 0.0);
         mainBackground->draw();
-
+        // Rocket creation 
         rocket = SpaceRocket(mouseX, mouseY);
         rocket.draw();
-        if (maxi <= Asteroid::Max_Asteroids && !asteroid.get_raduis() && timer > 0) {
+
+        // if time is not out and the number of asteroids is less than the maximum and the asteroid is destroyed
+        // creat new asteroid
+        if (noAsteroid <= Asteroid::Max_Asteroids && !asteroid.get_raduis() && timer > 0) {
             asteroid = Asteroid();
-            maxi++;
+            noAsteroid++;
         }
-        else if (maxi > Asteroid::Max_Asteroids) {
+        // if the number of asteroids is more than the maximum so game over
+        else if (noAsteroid >= Asteroid::Max_Asteroids) {
             Text text;
             text.setColor(1.0, 1.0, 1.0);
             text.printText("Game Over", 400, 700);
@@ -80,7 +84,8 @@ public:
             text.printText("Press F1 to play Again", 400, 500);
             gameOver = true;
         }
-        else if (timer < 0) {
+        // if time is out so game over
+        else if (timer <= 0) {
             Text text;
             text.setColor(1.0, 1.0, 1.0);
             text.printText("Time Out", 400, 700);
@@ -90,6 +95,7 @@ public:
             text.printText("Press F1 to play Again", 400, 500);
         }
         else {
+            // Asteroid movement
             asteroid.moving();
             asteroid.draw();
             // shooting
@@ -100,15 +106,12 @@ public:
             std::stringstream ss;
             ss << "Score: " << asteroidDestroyed;
             text.printText(ss.str().c_str(), 10, 970);
-
             // Timer
             Text timeText;
             std::stringstream newS;
             newS << "Time: " << timer;
             timeText.printText(newS.str().c_str(), 915, 970);
         }
-
-
         glutSwapBuffers(); // swap the buffers
         glFlush(); // flush the OpenGL pipeline (usually not necessary)
     }
