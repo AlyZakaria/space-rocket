@@ -1,4 +1,5 @@
 
+
 // make the background a singleton class
 // To ensure random circles are generated only once
 class BackgroundGame : public Quad {
