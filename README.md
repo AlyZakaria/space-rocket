@@ -14,6 +14,12 @@
 <p>Note that when the user restarts the game, the asteroids' X values are randomly generated once again.</p>
 
 
+
+
+https://github.com/AlyZakaria/space-rocket/assets/77212759/123a1216-08d5-4aa0-87be-df7976992e47
+
+
+
 <h2>Installation</h2>
 <p>To play the game, you will need to have OpenGL and a C++ compiler installed on your machine. You can follow these steps to install them on different operating systems:</p>
 
