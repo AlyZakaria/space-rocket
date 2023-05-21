@@ -1,16 +1,3 @@
-#ifdef __APPLE__
-#include <GLUT/glut.h>
-#else
-#include <GL/glut.h>
-#endif
-#include <math.h>
-#include <stdlib.h>
-#include <iostream>
-#include <bits/stdc++.h>
-#include <string>
-#include <cstring>
-
-using namespace std;
 
 class Text {
 private:

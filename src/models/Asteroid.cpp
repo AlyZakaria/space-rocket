@@ -1,15 +1,3 @@
-#ifdef __APPLE__
-#include <GLUT/glut.h>
-#else
-#include <GL/glut.h>
-#endif
-#include <math.h>
-#include <stdlib.h>
-#include <iostream>
-#include <bits/stdc++.h>
-#include <cmath>
-
-using namespace std;
 
 
 class Asteroid : public Circle {
@@ -37,7 +25,7 @@ public:
         cy -= sqDelta;
         float maxY = floor(mouseY); // asteroid Maximum Travelling
         if ((floor(cy) <= maxY && mouseX - 20 < cx && mouseX + 20 > cx) || cy < 0) sqUp = !sqUp;
-        if (sqUp) sqDelta += 0.5;
+        if (sqUp) sqDelta += 0.3;
         else {
             this->set_raduis(0.0);
         }

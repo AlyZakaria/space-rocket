@@ -1,7 +1,7 @@
 {
     "run.timelimit": 300000,
     
-    "run.compiler": "mingw32-g++.exe -std=c++11 -Wall -g -IC:MinGWinclude ",
+    "run.compiler": "mingw32-g++.exe -std=c++11 -I./include -Wall -g -IC:MinGWinclude ",
     "run.compilerArgs": "-o Program.exe -L C:MinGWlib -lglut32 -lopengl32 -lglu32 -lwinmm -lgdi32",
     "C_Cpp.formatting": "vcFormat",
     "breadcrumbs.enabled": false,
@@ -27,7 +27,8 @@
       "regex": "cpp",
       "bitset": "cpp",
       "iosfwd": "cpp",
-      "new": "cpp"
+      "new": "cpp",
+      "mouse.cpp": "c"
     },
     "code-runner.executorMap":{
       "cpp": "cd $dir && g++ -std=c++17 $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",

@@ -1,12 +1,6 @@
-#ifdef __APPLE__
-#include <GLUT/glut.h>
-#else
-#include <GL/glut.h>
-#endif
-#include <math.h>
-#include <stdlib.h>
-#include "src/tools/Screen.cpp"
-#include "src/tools/Mouse.cpp"
+#include <program.h>
+#include <tools.h>
+#include <shapes.h>
 #include "src/Game.cpp"
 #include "src/tools/Keyboard.cpp"
 

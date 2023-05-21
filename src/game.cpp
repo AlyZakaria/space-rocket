@@ -1,25 +1,6 @@
-#ifdef __APPLE__
-#include <GLUT/glut.h>
-#else
-#include <GL/glut.h>
-#endif
-#include <math.h>
-#include <stdlib.h>
-#include <iostream>
-#include <string>
-#include <cstring>
-#include<sstream> 
-#include "shapes/Triangle.cpp"
-#include "shapes/Circle.cpp"
-#include "shapes/Quad.cpp"
+#include <game.models.h>
 #include "tools/Text.cpp"
-#include "models/Asteroid.cpp"
-#include "models/SpaceRocket.cpp"
-#include "models/Backgrounds/Background.cpp"
-#include "models/Backgrounds/BackgroundGame.cpp"
-#include <bits/stdc++.h>
 
-using namespace std;
 
 // only one instance of backgroundGame is needed (singleton)
 BackgroundGame* BackgroundGame::BackgroundGame_ = NULL;

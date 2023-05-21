@@ -1,10 +1,4 @@
 
-#include <iostream>
-#include <bits/stdc++.h>
-
-using namespace std;
-
-
 // global variables
 float phyHeight = 1000;
 float phyWidth = 1000;
