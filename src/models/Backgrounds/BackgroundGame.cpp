@@ -1,15 +1,3 @@
-#ifdef __APPLE__
-#include <GLUT/glut.h>
-#else
-#include <GL/glut.h>
-#endif
-#include <math.h>
-#include <stdlib.h>
-#include <iostream>
-#include <stdio.h>
-#include <bits/stdc++.h>
-
-using namespace std;
 
 // make the background a singleton class
 // To ensure random circles are generated only once
