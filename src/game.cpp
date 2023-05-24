@@ -1,8 +1,10 @@
 #include <program.h>
-#include <game.models.h>
 #include "tools/Text.cpp"
+#include <game.models.h>
 
 
+
+using namespace std;
 // only one instance of backgroundGame is needed (singleton)
 BackgroundGame* BackgroundGame::BackgroundGame_ = NULL;
 
@@ -29,7 +31,7 @@ public:
         glutPostRedisplay();
     }
     void main(int argc, char** argv) {
-        if (timer <= 0) return;
+
         // Time for movement of asteroids
         Asteroid::Timer(10);
         // Time for main game
@@ -50,31 +52,31 @@ public:
         rocket.draw();
 
         // if time is not out and the number of asteroids is less than the maximum and the asteroid is destroyed
-        // creat new asteroid
+        // create new asteroid
         if (noAsteroid <= Asteroid::Max_Asteroids && !asteroid.get_raduis() && timer > 0) {
             asteroid = Asteroid();
             noAsteroid++;
         }
         // if the number of asteroids is more than the maximum so game over
         else if (noAsteroid >= Asteroid::Max_Asteroids) {
-            Text text;
-            text.setColor(1.0, 1.0, 1.0);
-            text.printText("Game Over", 400, 700);
-            std::stringstream ss;
-            ss << "Your Score is   " << asteroidDestroyed;
-            text.printText(ss.str().c_str(), 400, 600);
-            text.printText("Press F1 to play Again", 400, 500);
+            // Game Over
+            vector<stringstream> endGameText(3);
+            endGameText[0] << "Game Over";
+            endGameText[1] << "Your Score is ";
+            endGameText[2] << "Press F1 to play Again";
+
+            BackgroundEndGame endGame = BackgroundEndGame(endGameText);
+
             gameOver = true;
         }
         // if time is out so game over
         else if (timer <= 0) {
-            Text text;
-            text.setColor(1.0, 1.0, 1.0);
-            text.printText("Time Out", 400, 700);
-            std::stringstream ss;
-            ss << "Your Score is   " << asteroidDestroyed;
-            text.printText(ss.str().c_str(), 400, 600);
-            text.printText("Press F1 to play Again", 400, 500);
+            vector<stringstream> endGameText(3);
+            endGameText[0] << "Time Out";
+            endGameText[1] << "Your Score is ";
+            endGameText[2] << "Press F1 to play Again";
+
+            BackgroundEndGame endGame = BackgroundEndGame(endGameText);
         }
         else {
             // Asteroid movement
